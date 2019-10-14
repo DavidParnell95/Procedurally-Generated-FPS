@@ -16,4 +16,6 @@ player must fight their way through the maze.
 - Different Weapon Types
 - First Person Shooting
 - Health System
+- Some enemy types
+- Menu
 - Original Music (possibly) 
