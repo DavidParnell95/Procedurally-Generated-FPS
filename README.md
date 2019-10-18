@@ -23,6 +23,8 @@ When the players health hits 0, the game will reset.
 - Original Music (possibly) 
 
 ## Backround and Research
+![doom_ref] (https://gfycat.com/circularjampackedcreature)
+
 # Inspiriation
 - DOOM by ID software (1993) 
 - Wolfenstein by ID software (1992)
