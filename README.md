@@ -21,3 +21,14 @@ When the players health hits 0, the game will reset.
 - Some enemy types
 - Menu
 - Original Music (possibly) 
+
+##Backround and Research
+# Inspiriation
+- DOOM by ID software (1993) 
+- Wolfenstein by ID software (1992)
+
+# Research 
+- Proceduaral Maze Generation Tutorial: https://catlikecoding.com/unity/tutorials/maze/
+- FPS Shooting: https://www.youtube.com/watch?v=THnivyG0Mvo
+- Health System: https://www.youtube.com/watch?v=0T5ei9jN63M
+- Mick Gordon (for possible custom music tips: https://www.youtube.com/watch?v=ua-f0ypVbPA
