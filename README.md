@@ -23,7 +23,7 @@ When the players health hits 0, the game will reset.
 - Original Music (possibly) 
 
 ## Backround and Research
-![doom_ref] (https://github.com/DavidParnell95/Procedurally-Generated-FPS/blob/master/2e66d-doom2.gif)
+![doom_ref] (https://github.com/DavidParnell95/Procedurally-Generated-FPS/blob/master/2e66d-doom2.gif?raw=true)
 
 # Inspiriation
 - DOOM by ID software (1993) 
