@@ -22,7 +22,7 @@ When the players health hits 0, the game will reset.
 - Menu
 - Original Music (possibly) 
 
-##Backround and Research
+## Backround and Research
 # Inspiriation
 - DOOM by ID software (1993) 
 - Wolfenstein by ID software (1992)
