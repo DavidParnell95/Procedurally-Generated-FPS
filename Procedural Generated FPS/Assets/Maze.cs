@@ -12,6 +12,7 @@ public class Maze : MonoBehaviour
     public float generationStepDelay;
 
     public MazePassage passagePrefab;
+    public MazeWall[] wallprefabs;
 
     public MazeDoor doorPrefab;
 
@@ -81,6 +82,7 @@ public class Maze : MonoBehaviour
             else
             {
                 CreateWall(currentCell, neighbor, direction);
+                
             }
         }
         else
