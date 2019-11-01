@@ -4,24 +4,20 @@ using System.Collections.Generic;
 
 public class Maze : MonoBehaviour
 {
-
     public IntVector2 size;
-
     public MazeCell cellPrefab;
-
     public float generationStepDelay;
-
     public MazePassage passagePrefab;
     public MazeWall[] wallprefabs;
-
     public MazeDoor doorPrefab;
+    public MazeRoomSettings[] roomSettings;
+    public MazeWall[] wallPrefabs;
 
     [Range(0f, 1f)]
     public float doorProbability;
 
-    public MazeWall[] wallPrefabs;
-
     private MazeCell[,] cells;
+    private List<MazeRoom> rooms = new List<MazeRoom>();
 
     public IntVector2 RandomCoordinates
     {
@@ -56,7 +52,9 @@ public class Maze : MonoBehaviour
 
     private void DoFirstGenerationStep(List<MazeCell> activeCells)
     {
-        activeCells.Add(CreateCell(RandomCoordinates));
+        MazeCell newCell = CreateCell(RandomCoordinates);
+        newCell.Initialize(CreateRoom(-1));
+        activeCells.Add(newCell);
     }
 
     private void DoNextGenerationStep(List<MazeCell> activeCells)
@@ -108,6 +106,16 @@ public class Maze : MonoBehaviour
         MazePassage passage = Instantiate(prefab) as MazePassage;
         passage.Initialize(cell, otherCell, direction);
         passage = Instantiate(prefab) as MazePassage;
+
+        if(passage is MazeDoor)
+        {
+            otherCell.Initialize(CreateRoom(cell.room.settingsIndex));
+        }
+        else
+        {
+            otherCell.Initialize(cell.room);
+        }
+
         passage.Initialize(otherCell, cell, direction.GetOpposite());
     }
 
@@ -120,5 +128,21 @@ public class Maze : MonoBehaviour
             wall = Instantiate(wallPrefabs[Random.Range(0, wallPrefabs.Length)]) as MazeWall;
             wall.Initialize(otherCell, cell, direction.GetOpposite());
         }
+    }
+
+    //Generates Rooms
+    private MazeRoom CreateRoom(int indextToExclude)
+    {
+        MazeRoom newRoom = ScriptableObject.CreateInstance<MazeRoom>();
+        newRoom.settingsIndex = Random.Range(0, roomSettings.Length);
+
+        if(newRoom.settingsIndex == indextToExclude)
+        {
+            newRoom.settingsIndex = (newRoom.settingsIndex + 1) % roomSettings.Length;
+        }
+
+        newRoom.settings = roomSettings[newRoom.settingsIndex];
+        rooms.Add(newRoom);
+        return newRoom;
     }
 }

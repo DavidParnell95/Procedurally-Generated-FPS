@@ -9,6 +9,8 @@ public class MazeCell : MonoBehaviour
 
     private int initializedEdgeCount;
 
+    public MazeRoom room;
+
     public bool IsFullyInitialized
     {
         get
@@ -46,5 +48,11 @@ public class MazeCell : MonoBehaviour
     {
         edges[(int)direction] = edge;
         initializedEdgeCount += 1;
+    }
+
+    public void Initialize(MazeRoom room)
+    {
+        room.Add(this);
+        transform.GetChild(0).GetComponent<Renderer>().material = room.settings.floorMaterial;
     }
 }

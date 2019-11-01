@@ -61,6 +61,8 @@
      <Compile Include="Assets\MazeDirection.cs" />
      <Compile Include="Assets\MazeDoor.cs" />
      <Compile Include="Assets\MazePassage.cs" />
+     <Compile Include="Assets\MazeRoom.cs" />
+     <Compile Include="Assets\MazeRoomSettings.cs" />
      <Compile Include="Assets\MazeWall.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>W:/David/Documents/Github/Procedurally-Generated-FPS/Procedural Generated FPS/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
