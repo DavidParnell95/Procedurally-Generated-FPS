@@ -10,7 +10,7 @@ public class MazeDoor : MazePassage
     {
         get
         {
-            return othercell.GetEdge(direction.GetOpposite()) as MazeDoor;
+            return otherCell.GetEdge(direction.GetOpposite()) as MazeDoor;
         }
     }
 
@@ -32,7 +32,7 @@ public class MazeDoor : MazePassage
 
             if(child != hinge)
             {
-                child.GetComponent<Render>().material = cell.room.settings.wallMaterial;
+                child.GetComponent<Renderer>().material = cell.room.settings.wallMaterial;
             }
         }
 
