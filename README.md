@@ -18,9 +18,7 @@ When the players health hits 0, the game will reset.
 - Different Weapon Types (Raycast & Projectile)
 - First Person Shooting
 - Health System
-- Some enemy types
 - Menu
-- Original Music (possibly) 
 
 ## Backround and Research
 ![doom_ref](https://github.com/DavidParnell95/Procedurally-Generated-FPS/blob/master/2e66d-doom2.gif)
@@ -33,4 +31,3 @@ When the players health hits 0, the game will reset.
 - Proceduaral Maze Generation Tutorial: https://catlikecoding.com/unity/tutorials/maze/
 - FPS Shooting: https://www.youtube.com/watch?v=THnivyG0Mvo
 - Health System: https://www.youtube.com/watch?v=0T5ei9jN63M
-- Mick Gordon (for possible custom music tips: https://www.youtube.com/watch?v=ua-f0ypVbPA
