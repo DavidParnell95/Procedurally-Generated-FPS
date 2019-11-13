@@ -53,7 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Enemy.cs" />
      <Compile Include="Assets\GameManager.cs" />
+     <Compile Include="Assets\Gun.cs" />
      <Compile Include="Assets\IntVector2.cs" />
      <Compile Include="Assets\Maze.cs" />
      <Compile Include="Assets\MazeCell.cs" />
@@ -64,6 +66,8 @@
      <Compile Include="Assets\MazeRoom.cs" />
      <Compile Include="Assets\MazeRoomSettings.cs" />
      <Compile Include="Assets\MazeWall.cs" />
+     <Compile Include="Assets\MouseLook.cs" />
+     <Compile Include="Assets\PlayerMovement.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>W:/David/Documents/Github/Procedurally-Generated-FPS/Procedural Generated FPS/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
