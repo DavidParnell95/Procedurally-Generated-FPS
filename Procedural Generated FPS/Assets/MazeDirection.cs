@@ -11,7 +11,6 @@ public enum MazeDirection
 
 public static class MazeDirections
 {
-
     public const int Count = 4;
 
     public static MazeDirection RandomValue
@@ -29,9 +28,23 @@ public static class MazeDirections
         MazeDirection.East
     };
 
+
+    //get opposite to current direction
     public static MazeDirection GetOpposite(this MazeDirection direction)
     {
         return opposites[(int)direction];
+    }
+
+    //get next direction to the right/ 90 degrees
+    public static MazeDirection GetNextClockwise(this MazeDirection direction)
+    {
+        return (MazeDirection)(((int)direction + 1) % Count);
+    }
+
+    //Get next direction to the left/ -90 degrees
+    public static MazeDirection GetNextCounterclockwise(this MazeDirection direction)
+    {
+        return (MazeDirection)(((int)direction + Count - 1) % Count);
     }
 
     private static IntVector2[] vectors = {

@@ -39,6 +39,12 @@ public class MazeCell : MonoBehaviour
         }
     }
 
+    public void Initialize(MazeRoom room)
+    {
+        room.Add(this);
+        transform.GetChild(0).GetComponent<Renderer>().material = room.settings.floorMaterial;
+    }
+
     public MazeCellEdge GetEdge(MazeDirection direction)
     {
         return edges[(int)direction];
@@ -50,9 +56,35 @@ public class MazeCell : MonoBehaviour
         initializedEdgeCount += 1;
     }
 
-    public void Initialize(MazeRoom room)
+    //Show object
+    public void Show()
     {
-        room.Add(this);
-        transform.GetChild(0).GetComponent<Renderer>().material = room.settings.floorMaterial;
+        gameObject.SetActive(true);
+    }
+
+    //hide object
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+    }
+
+    //When player enters room, show it
+    public void OnPlayerEntered()
+    {
+        room.Show();
+        for (int i = 0; i < edges.Length; i++)
+        {
+            edges[i].OnPlayerEntered();
+        }
+    }
+
+    //When player exits room, hide it
+    public void OnPlayerExited()
+    {
+        room.Hide();
+        for (int i = 0; i < edges.Length; i++)
+        {
+            edges[i].OnPlayerExited();
+        }
     }
 }

@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class MazeDoor : MazePassage
 {
+    //Rotation for door hing (180 degrees) 
+    private static Quaternion
+        normalRotation = Quaternion.Euler(0f, -90f, 0f),
+        mirroredRotation = Quaternion.Euler(0f, 90f, 0f);
+
     public Transform hinge;
+    public bool isMirrored;
 
     private MazeDoor OtherSideOfDoor
     {
@@ -18,8 +24,10 @@ public class MazeDoor : MazePassage
     {
         base.Initialize(Primary, other, direction);
 
+        //if other side of the door isnt empty
         if(OtherSideOfDoor != null)
         {
+            isMirrored = true;//reverse direction 
             hinge.localScale = new Vector3(-1f, 1f, 1f);
             Vector3 p = hinge.localPosition;
             p.x = -p.x;
@@ -37,5 +45,19 @@ public class MazeDoor : MazePassage
         }
 
     }
-    
+
+    //When player enters, show room
+    public override void OnPlayerEntered()
+    {
+        OtherSideOfDoor.hinge.localRotation = hinge.localRotation = isMirrored ? mirroredRotation : normalRotation;
+        OtherSideOfDoor.cell.room.Show();
+    }
+
+    //When player exits, hide room
+    public override void OnPlayerExited()
+    {
+        OtherSideOfDoor.hinge.localRotation = hinge.localRotation = Quaternion.identity;
+        OtherSideOfDoor.cell.room.Hide();
+    }
+
 }

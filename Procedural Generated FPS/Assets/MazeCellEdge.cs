@@ -14,10 +14,14 @@ public abstract class MazeCellEdge : MonoBehaviour
         this.otherCell = otherCell;
         this.direction = direction;
 
-        cell.SetEdge(direction, this);
+        cell.SetEdge(direction, this);//Set edge to current direction
 
         transform.parent = cell.transform;
         transform.localPosition = Vector3.zero;
         transform.localRotation = direction.ToRotation();
     }
+
+    public virtual void OnPlayerEntered() { }
+
+    public virtual void OnPlayerExited() { }
 }
