@@ -60,33 +60,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GameManager.cs" />
-    <Compile Include="Assets\IntVector2.cs" />
-    <Compile Include="Assets\Maze.cs" />
-    <Compile Include="Assets\MazeCell.cs" />
-    <Compile Include="Assets\MazeCellEdge.cs" />
-    <Compile Include="Assets\MazeDirection.cs" />
-    <Compile Include="Assets\MazeDoor.cs" />
-    <Compile Include="Assets\MazePassage.cs" />
-    <Compile Include="Assets\MazeRoom.cs" />
-    <Compile Include="Assets\MazeRoomSettings.cs" />
-    <Compile Include="Assets\MazeWall.cs" />
-    <Compile Include="Assets\MouseLook.cs" />
-    <Compile Include="Assets\Player.cs" />
+    <Compile Include="Assets\BinarySpacePartitioner.cs" />
+    <Compile Include="Assets\CorridorNode.cs" />
+    <Compile Include="Assets\CorridorsGenerator.cs" />
+    <Compile Include="Assets\DungeonCreator.cs" />
+    <Compile Include="Assets\DungeonGenerator.cs" />
+    <Compile Include="Assets\Line.cs" />
+    <Compile Include="Assets\Node.cs" />
+    <Compile Include="Assets\RoomGenerator.cs" />
+    <Compile Include="Assets\RoomNode.cs" />
+    <Compile Include="Assets\StructureHelper.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/David/Documents/Github/Procedurally-Generated-FPS/Procedural Generated FPS/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/Lenovo/Documents/GitHub/Procedurally-Generated-FPS/Procedural Generated FPS/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>D:/David/Documents/Github/Procedurally-Generated-FPS/Procedural Generated FPS/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Lenovo/Documents/GitHub/Procedurally-Generated-FPS/Procedural Generated FPS/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/David/Documents/Github/Procedurally-Generated-FPS/Procedural Generated FPS/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/Lenovo/Documents/GitHub/Procedurally-Generated-FPS/Procedural Generated FPS/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/David/Documents/Github/Procedurally-Generated-FPS/Procedural Generated FPS/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Lenovo/Documents/GitHub/Procedurally-Generated-FPS/Procedural Generated FPS/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>D:/David/Documents/Github/Procedurally-Generated-FPS/Procedural Generated FPS/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/Lenovo/Documents/GitHub/Procedurally-Generated-FPS/Procedural Generated FPS/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -290,13 +287,13 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.12f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>D:/David/Documents/Github/Procedurally-Generated-FPS/Procedural Generated FPS/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/Lenovo/Documents/GitHub/Procedurally-Generated-FPS/Procedural Generated FPS/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>D:/David/Documents/Github/Procedurally-Generated-FPS/Procedural Generated FPS/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Lenovo/Documents/GitHub/Procedurally-Generated-FPS/Procedural Generated FPS/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>D:/David/Documents/Github/Procedurally-Generated-FPS/Procedural Generated FPS/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/Lenovo/Documents/GitHub/Procedurally-Generated-FPS/Procedural Generated FPS/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.12f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
