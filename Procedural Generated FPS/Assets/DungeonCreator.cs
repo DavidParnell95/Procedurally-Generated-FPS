@@ -21,14 +21,27 @@ public class DungeonCreator : MonoBehaviour
     [Range(0, 2)]
     public int roomOffset;
 
+    //Wall Variables
+    public GameObject wallVertical, wallHorizontal;
+
+    //Lists of doors
+    List<Vector3Int> possibleDoorVerticalPosition;
+    List<Vector3Int> possibleDoorHorizontalPosition;
+
+    List<Vector3Int> possibleWallHorizontalPosition;
+    List<Vector3Int> possibleWallVerticalPosition;
+
     // Start is called before the first frame update
     void Start()
     {
         CreateDungeon();
     }
 
+    //Generate the dungeon
     private void CreateDungeon()
     {
+        DestroyAllChildren();//Clear existing dungeon if present
+
         DugeonGenerator generator = new DugeonGenerator(dungeonWidth, dungeonLength);
 
         var listOfRooms = generator.CalculateDungeon(maxIterations,
@@ -38,11 +51,45 @@ public class DungeonCreator : MonoBehaviour
             roomTopCornerMidifier,
             roomOffset,
             corridorWidth);
+
+        GameObject wallParent = new GameObject("WallParent");
+        wallParent.transform.parent = transform;
+
+        possibleDoorVerticalPosition = new List<Vector3Int>();
+        possibleDoorHorizontalPosition = new List<Vector3Int>();
+        possibleWallHorizontalPosition = new List<Vector3Int>();
+        possibleWallVerticalPosition = new List<Vector3Int>();
+
+        //Create Mesh for created rooms 
         for (int i = 0; i < listOfRooms.Count; i++)
         {
             CreateMesh(listOfRooms[i].BottomLeftAreaCorner, listOfRooms[i].TopRightAreaCorner);
         }
 
+        CreateWalls(wallParent);
+    }
+
+    //Add walls to the dungeon (uses prefab) 
+    private void CreateWalls(GameObject wallParent)
+    {
+        //Create wall in possible horizontal wall position
+        foreach (var wallPosition in possibleWallHorizontalPosition)
+        {
+            CreateWall(wallParent, wallPosition, wallHorizontal);
+        }
+
+        //Create wall in possible horizontal wall position
+        foreach (var wallPosition in possibleWallVerticalPosition)
+        {
+            CreateWall(wallParent, wallPosition, wallVertical);//Create the wall 
+        }
+    }
+
+    //Create wall in current position 
+    private void CreateWall(GameObject wallParent, Vector3Int wallPosition, GameObject wallPrefab)
+    {
+        //instantiate the wall object 
+        Instantiate(wallPrefab, wallPosition, Quaternion.identity, wallParent.transform);
     }
 
 
@@ -75,7 +122,7 @@ public class DungeonCreator : MonoBehaviour
         //Must be set clockwise 
         int[] triangles = new int[]
         {
-            0,
+            0, 
             1,
             2,
             2,
@@ -100,5 +147,63 @@ public class DungeonCreator : MonoBehaviour
         dungeonFloor.GetComponent<MeshFilter>().mesh = mesh;
         dungeonFloor.GetComponent<MeshRenderer>().material = material;
 
+        for (int row = (int)bottomLeftV.x; row < (int)bottomRightV.x; row++)
+        {
+            var wallPosition = new Vector3(row, 0, bottomLeftV.z);
+            AddWallPositionToList(wallPosition, possibleWallHorizontalPosition, possibleDoorHorizontalPosition);
+        }
+
+        for (int row = (int)topLeftV.x; row < (int)topRightCorner.x; row++)
+        {
+            var wallPosition = new Vector3(row, 0, topRightV.z);
+            AddWallPositionToList(wallPosition, possibleWallHorizontalPosition, possibleDoorHorizontalPosition);
+        }
+
+        for (int col = (int)bottomLeftV.z; col < (int)topLeftV.z; col++)
+        {
+            var wallPosition = new Vector3(bottomLeftV.x, 0, col);
+            AddWallPositionToList(wallPosition, possibleWallVerticalPosition, possibleDoorVerticalPosition);
+        }
+
+        for (int col = (int)bottomRightV.z; col < (int)topRightV.z; col++)
+        {
+            var wallPosition = new Vector3(bottomRightV.x, 0, col);
+            AddWallPositionToList(wallPosition, possibleWallVerticalPosition, possibleDoorVerticalPosition);
+        }
     }
+
+    //Add Walls and doors to list
+    private void AddWallPositionToList(Vector3 wallPosition, List<Vector3Int> wallList, List<Vector3Int> doorList)
+    {
+        Vector3Int point = Vector3Int.CeilToInt(wallPosition);
+
+        //if contains point
+        //add door and remove wall
+        if (wallList.Contains(point))
+        {
+            doorList.Add(point);
+            wallList.Remove(point);
+        }
+
+        //if not
+        //add wall 
+        else
+        {
+            wallList.Add(point);
+        }
+    }
+
+    //Destryoy all children in list
+    private void DestroyAllChildren()
+    {
+        while (transform.childCount != 0)
+        {
+            foreach (Transform item in transform)
+            {
+                DestroyImmediate(item.gameObject);
+            }
+        }
+    }
+
 }
+

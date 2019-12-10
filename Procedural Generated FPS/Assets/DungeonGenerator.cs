@@ -3,11 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+
 public class DugeonGenerator
 {
 
     List<RoomNode> allNodesCollection = new List<RoomNode>();
-    private int dungeonWidth;
+    private int dungeonWidth;//Sets dungeon width
     private int dungeonLength;
 
     public DugeonGenerator(int dungeonWidth, int dungeonLength)
@@ -25,9 +26,11 @@ public class DugeonGenerator
         allNodesCollection = bsp.PrepareNodesCollection(maxIterations, roomWidthMin, roomLengthMin);
         List<Node> roomSpaces = StructureHelper.TraverseGraphToExtractLowestLeafes(bsp.RootNode);//Passes root node
 
+        //Create Rooms in roomSpaces
         RoomGenerator roomGenerator = new RoomGenerator(maxIterations, roomLengthMin, roomWidthMin);
         List<RoomNode> roomList = roomGenerator.GenerateRoomsInGivenSpaces(roomSpaces, roomBottomCornerModifier, roomTopCornerMidifier, roomOffset);
 
+        //Create corridors to link roooms
         CorridorsGenerator corridorGenerator = new CorridorsGenerator();
         var corridorList = corridorGenerator.CreateCorridor(allNodesCollection, corridorWidth);
 
