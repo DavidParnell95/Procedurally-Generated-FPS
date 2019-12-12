@@ -65,6 +65,8 @@
     <Compile Include="Assets\CorridorsGenerator.cs" />
     <Compile Include="Assets\DungeonCreator.cs" />
     <Compile Include="Assets\DungeonGenerator.cs" />
+    <Compile Include="Assets\Enemy.cs" />
+    <Compile Include="Assets\Gun.cs" />
     <Compile Include="Assets\Line.cs" />
     <Compile Include="Assets\MouseLook.cs" />
     <Compile Include="Assets\Node.cs" />
