@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5566097572686723626}
   - component: {fileID: 623600763147309836}
   - component: {fileID: 3029002447193207916}
+  - component: {fileID: 54740120263128062}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -62,6 +63,22 @@ MonoBehaviour:
   stopDistance: 20
   retreatDistance: 10
   player: {fileID: 0}
+--- !u!54 &54740120263128062
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449930468094950292}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6487310794650407401
 GameObject:
   m_ObjectHideFlags: 0

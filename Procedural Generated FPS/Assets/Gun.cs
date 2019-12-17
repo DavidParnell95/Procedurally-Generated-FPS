@@ -8,6 +8,8 @@ public class Gun : MonoBehaviour
 
     public Camera fpsCam;
 
+    public ParticleSystem muzzleFlash;
+
     // Update is called once per frame
     void Update()
     {
@@ -19,6 +21,8 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
+        muzzleFlash.Play();
+
         RaycastHit hit;
 
         //Checks if raycast, projected from camera's current position (in range) hits a target 

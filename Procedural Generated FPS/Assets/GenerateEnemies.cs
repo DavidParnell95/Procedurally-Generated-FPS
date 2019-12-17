@@ -23,8 +23,8 @@ public class GenerateEnemies : MonoBehaviour
         //While less than max 
         while(enemyCount < maxEnemies)
         {
-            xpos = Random.Range(0, 240);
-            zpos = Random.Range(0, 240);
+            xpos = Random.Range(1, 240);
+            zpos = Random.Range(1, 240);
 
             //Create enemy
             Instantiate(theEnemy, new Vector3(xpos,1.5f,zpos), Quaternion.identity);
