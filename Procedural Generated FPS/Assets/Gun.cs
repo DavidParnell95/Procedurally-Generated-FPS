@@ -5,17 +5,21 @@ public class Gun : MonoBehaviour
 {
     public float damage = 10f;//damage dealt per shot
     public float range = 100f;//Damage range 
+    public float fireRate = 15f;//Fire rate
 
     public Camera fpsCam;
 
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
 
+    private float nexTimeToFire = 0f;//When you can shoot next 
+
     // Update is called once per frame
     void Update()
     {
-        if( Input.GetButtonDown("Fire1"))
-        {
+        if (Input.GetButton("Fire1") && Time.time >= nexTimeToFire)
+        { 
+            nexTimeToFire = Time.time + 1f / fireRate;
             Shoot();
         }
     }
