@@ -76,6 +76,7 @@
     <Compile Include="Assets\RoomGenerator.cs" />
     <Compile Include="Assets\RoomNode.cs" />
     <Compile Include="Assets\StructureHelper.cs" />
+    <Compile Include="Assets\WeaponSwitching.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/david/OneDrive/Documents/GitHub/Procedurally-Generated-FPS/Procedural Generated FPS/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
