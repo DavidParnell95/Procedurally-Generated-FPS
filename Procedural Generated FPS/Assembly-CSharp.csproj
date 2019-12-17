@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BinarySpacePartitioner.cs" />
+    <Compile Include="Assets\BulletBehaviour.cs" />
     <Compile Include="Assets\CorridorNode.cs" />
     <Compile Include="Assets\CorridorsGenerator.cs" />
     <Compile Include="Assets\DungeonCreator.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Assets\MouseLook.cs" />
     <Compile Include="Assets\Node.cs" />
     <Compile Include="Assets\PlayerMovement.cs" />
+    <Compile Include="Assets\ProjectileWeapon.cs" />
     <Compile Include="Assets\RoomGenerator.cs" />
     <Compile Include="Assets\RoomNode.cs" />
     <Compile Include="Assets\StructureHelper.cs" />
