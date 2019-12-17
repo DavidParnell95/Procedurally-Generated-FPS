@@ -13,6 +13,8 @@ player must fight their way through the maze.
 Weapons will include raycast weapons and projectile weapons. 
 When the players health hits 0, the game will reset. 
 
+[![](http://img.youtube.com/vi/NX3aWZhm-_A/0.jpg)](http://www.youtube.com/watch?v=NX3aWZhm-_A "Demo")
+
 ## Features
 - Procedurally Generated Maze
 - Different Weapon Types (Raycast & Projectile)
